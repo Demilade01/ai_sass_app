@@ -1,3 +1,10 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  "type": "setting",
+  "settings": {
+    "rules": {
+      "@typescript-eslint/no-explicit-any": "off",
+      "prefer-spread": "off"
+    }
+  }
 }
