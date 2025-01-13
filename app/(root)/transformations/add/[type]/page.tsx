@@ -11,8 +11,8 @@ const AddTransformationTypePage = async ({ params: { type }}: SearchParamProps) 
   const { userId } = await auth();
 
   if(!userId) redirect('/sign-in')
-    
-  const user = getUserById(userId);
+
+  const user = await getUserById(userId);
 
   return (
 
@@ -21,12 +21,14 @@ const AddTransformationTypePage = async ({ params: { type }}: SearchParamProps) 
         title={transformation.title}
         subtitle= {transformation.subTitle}
       />
-      <TransformationForm
-        action='Add'
-        userId={user._id}
-        type={transformation.type as TransformationTypeKey}
-        creditBalance={user.creditBalance}
-      />
+      <section className='mt-10'>
+        <TransformationForm
+          action='Add'
+          userId={user._id}
+          type={transformation.type as TransformationTypeKey}
+          creditBalance={user.creditBalance}
+        />
+      </section>
     </>
   )
 }
