@@ -11,7 +11,7 @@ import { v2 as cloudinary} from "cloudinary"
 const populateUser = (query: any) => query.populate({
   path: 'author',
   model: User,
-  select: '_id firstName lastName'
+  select: '_id firstName lastName clerkId'
 })
 
 // ADD IMAGE
@@ -23,7 +23,7 @@ export async function addImage({ image, userId, path}: AddImageParams) {
 
     if(!author) throw new Error("User not found");
 
-    const newImage = await Image .create({
+    const newImage = await Image.create({
       ...image,
       author: author._id,
     })

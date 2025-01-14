@@ -6,7 +6,7 @@ import Header from "@/components/shared/Header";
 import TransformedImage from "@/components/shared/TransformedImage";
 import { Button } from "@/components/ui/button";
 import { getImageSize } from "@/lib/utils";
-// import { DeleteConfirmation } from "@/components/shared/DeleteConfirmation";
+import { DeleteConfirmation } from "@/components/shared/DeleteConfirmation";
 import { auth } from "@clerk/nextjs/server";
 import { getImageById } from "@/lib/actions/image.action";
 
@@ -92,7 +92,7 @@ const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
               </Link>
             </Button>
 
-            {/* <DeleteConfirmation imageId={image._id} /> */}
+            <DeleteConfirmation imageId={image._id} />
           </div>
         )}
       </section>

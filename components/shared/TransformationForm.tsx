@@ -16,7 +16,6 @@ import {
 } from "@/components/ui/select"
 
 import { Input } from "@/components/ui/input"
-import { title } from "process"
 import { aspectRatioOptions, creditFee, defaultValues, transformationTypes } from "@/constants"
 import { CustomField } from "./CustomField"
 import { useEffect, useState, useTransition } from "react"
@@ -155,8 +154,8 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
         },
       }))
 
-      return onChangeField(value)
     }, 1000)
+    return onChangeField(value)
   }
 
   const onTransformHandler = async () => {
@@ -194,12 +193,13 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
         {type === 'fill' && (
           <CustomField
             control={form.control}
-            name="aspectRatio"
-            formLabel="Aspect Ratio"
+        name="aspectRatio"
+          formLabel="Aspect Ratio"
             className="w-full"
             render={({ field }) => (
               <Select
                 onValueChange={(value) => onSelectFieldHandler(value, field.onChange)}
+                value={field.value}
               >
                 <SelectTrigger className="select-field">
                   <SelectValue placeholder="Select size" />
